@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import HomePage from "./components/home"
+import DogPage from "./components/dog";
+import CatPage from "./components/cat";
+import FishPage from "./components/fish";
+import BirdPage from "./components/bird";
+import HomeScreen from './components/home';
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <HomeScreen/>
+      <Routes>
+      <Route path="/home" element={<HomePage/>} />
+        <Route path="/dog" element={<DogPage/>}/>
+        <Route path="/cat" element={<CatPage/>} />
+        <Route path="/fish" element={<FishPage/>} />
+        <Route path="/bird" element={<BirdPage/>} />
+
+      </Routes>
+    </Router>
   );
 }
 
